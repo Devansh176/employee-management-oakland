@@ -1,4 +1,4 @@
-package employee.model;
+package com.employee.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "employee")
+@Table(name = "com/employee")
 public class Employee {
 
     @Id

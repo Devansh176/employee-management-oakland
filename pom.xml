@@ -60,6 +60,14 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Spring ORM -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>7.0.2</version>
+        </dependency>
+
+
     </dependencies>
     <build>
     <finalName>employee-management</finalName>
