@@ -19,9 +19,14 @@ public class EmployeeService {
 
     public Employee login(String loginId, String password) {
         Employee emp = employeeRepository.findByLoginId(loginId);
-        if(emp != null && emp.getPassword().equals(password)) {
-            return emp;
+
+        if(emp == null) {
+            throw new RuntimeException("User not registered");
         }
-        return null;
+
+        if(!emp.getPassword().equals(password)) {
+            throw new RuntimeException("Password does not match");
+        }
+        return emp;
     }
 }
