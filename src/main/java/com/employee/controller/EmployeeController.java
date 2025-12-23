@@ -5,18 +5,22 @@ import com.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/employee")
 public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping("/registerPage")
+    @GetMapping("/test")
+    @ResponseBody
+    public String test() {
+        return "SPRING MVC WORKING";
+    }
+
+    @GetMapping("/register")
     public String showRegisterPage(Model model) {
         model.addAttribute("employee", new Employee());
         return "registerPage";
@@ -28,7 +32,7 @@ public class EmployeeController {
         return "login";
     }
 
-    @GetMapping("/loginPage")
+    @GetMapping("/login")
     public String showLoginPage() {
         return "login";
     }

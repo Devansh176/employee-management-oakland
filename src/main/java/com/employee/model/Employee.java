@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -24,6 +25,7 @@ public class Employee {
     private String name;
 
     @Column(name = "dob")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
 
     @Column(name = "gender")
@@ -39,7 +41,7 @@ public class Employee {
     private String state;
 
     @Column(name = "login_id", unique = true)
-    private String login_id;
+    private String loginId;
 
     @Column(name = "password")
     private String password;
