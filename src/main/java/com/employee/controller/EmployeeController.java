@@ -39,11 +39,14 @@ public class EmployeeController {
 
     @PostMapping("/login")
     public String login(@RequestParam String loginId, @RequestParam String password, Model model) {
-        Employee emp = employeeService.login(loginId, password);
-        if(emp != null) {
+        try {
+            Employee emp = employeeService.login(loginId, password);
             model.addAttribute("name", emp.getName());
             return "Welcome";
         }
-        return "login";
+        catch (RuntimeException e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            return "login";
+        }
     }
 }
